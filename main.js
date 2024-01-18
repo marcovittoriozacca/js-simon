@@ -20,14 +20,13 @@ function timer(){
         clearInterval(clockJS);
         clockHtml.innerHTML = "Tempo della correzione!"
     }else{
+        //prendiamo la data di oggi in millisecondi, la sottraiamo al valore in millisecondi del giorno target e il risultato lo trasformiano nuovamente in formato originale.
         today = new Date().getTime();
         countDown = targetData - today;
-        
         countDown = new Date(countDown);
-        let dateTransform = new Date(countDown)        
-        console.log(dateTransform);
-        
-        clockHtml.innerHTML = `${dateTransform.getHours()}:${dateTransform.getMinutes()}:${dateTransform.getSeconds()}`;
+        let hours = (countDown) / 1000 / 60 / 60;
+        //output dei valori che ci interessano per il countdown
+        clockHtml.innerHTML = `${hours.toFixed(0)}:${countDown.getMinutes()}:${countDown.getSeconds()}`;
 
     }
 }
