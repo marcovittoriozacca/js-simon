@@ -1,7 +1,7 @@
 const clockHtml = document.getElementById('clockhtml')
 
 //associamo a questa variabile il giorno e l'orario di domani (deadline) in millisecondi
-const targetData = new Date("Jan 20, 2024, 09:30:00").getTime();
+const targetData = new Date("Jan 19, 2024, 09:30:00").getTime();
 
 
 //variabile che conterrà la giornata e l'orario attuale, sempre in millisecondi
@@ -15,7 +15,7 @@ const clockJS = setInterval(timer, 1000)
 //funzione timer per il conteggio dei millisecondi
 function timer(){
     
-    if(countDown < 0){
+    if(countDown < 1){
         clearInterval(clockJS);
         clockHtml.innerHTML = "Tempo della correzione!"
 
@@ -31,3 +31,4 @@ function timer(){
 
     }
 }
+
