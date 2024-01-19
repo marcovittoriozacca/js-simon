@@ -7,15 +7,12 @@ const targetData = new Date("Jan 19, 2024, 09:30:00").getTime();
 //variabile che conterrà la giornata e l'orario attuale, sempre in millisecondi
 let today;
 //variabile che conterrà la differenza di tempo in millisecondi tra la giornata di oggi e la giornata target
-let countDown = 0;
+let countDown;
 
 //funzione temporale (attualmente senza parametri di tempo per rendere più visibile lo scalare dei millisecondi)
-const clockJS = setInterval(timer, 1000)
+const clockJS = setInterval(function(){
 
-//funzione timer per il conteggio dei millisecondi
-function timer(){
-    
-    if(countDown < 1){
+    if(countDown < 0){
         clearInterval(clockJS);
         clockHtml.innerHTML = "Tempo della correzione!"
 
@@ -28,7 +25,8 @@ function timer(){
         countDown = new Date(countDown);
         //output dei valori che ci interessano per il countdown
         clockHtml.innerHTML = `${hours}:${countDown.getMinutes()}:${countDown.getSeconds()}`;
-
     }
-}
+
+}, 1000)
+
 
